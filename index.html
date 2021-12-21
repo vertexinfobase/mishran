@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Hello</title>
+    <style>
+        * { margin:0; padding:0; font-family:verdana; }
+        input {height:20pt; width:250pt; }
+        body { height:100%; width:100%; background: whitesmoke;}
+    </style>
+</head>
+<body>
+<h3 style='display:block; text-align:center; color:darkgreen; font-size:25pt; margin-top:10pt; font-family:Impact,Charcoal,sans-serif;'>mishran<span style='font-style:italic; color:olive'></span></h3>
+<form style='display:block; width:100%; text-align:center;' autocomplete='off'>
+    <em>a perfect blend of <b style='color:slateblue'>taste</b>, <b style='color:crimson'>health</b> & <b style='color:midnightblue'>aroma</b></em><br><br>
+    <input type='text' placeholder="Enter Mobile Number" id='input'/><br>
+    <button id='check' style='display:inline-block; margin-top:5pt; width:250pt; height:25pt; background:midnightblue; color:gold; '>View Bill and Order History</button><br>
+    <input type='text' disabled='true' id='output'  style='display:none;'/><br>
+    <button id='encrypt' style='display:none;'>Encrypt</button><br>
+    <button id='decrypt' style='display:none;'>Decrypt</button><br>
+</form>
+
+<iframe id='balFrame' style='display:block; position:fixed; top:25vh; height:75vh; max-height:75vh; width:90vw; overflow-x:hidden; overflow-y:scroll; background:; padding-left:10vw;' frameborder='0' scrolling='no' id='balFrame' src=""></iframe>
+    
+
+<script>
+    var docList = [
+    'U2FsdGVkX18DKvqhY+KCwdMJ/XMXFN2GQCVypFDM2cA=A-C',
+    'U2FsdGVkX18NUqXEwb28PvdJ6SbVe2ZrPo2xrbinE1A=EF-EH',
+    'U2FsdGVkX1/NXZiu9UWukLWk0jDI+vplmwgBHUZfkVk=D-F',
+    'U2FsdGVkX18S/2tjI09R5A2NtukkQKZ1pDsRox1wJXo=CD-CF',
+    'U2FsdGVkX1/cbF11y+wFSliWWbkgJx1pBHmkjWyw2ck=G-I',
+    'U2FsdGVkX1+jo1053NFyHtA262tffR8w3wCOxVNYyQM=J-L',
+    'U2FsdGVkX1+V1zVCygK82q4q14vPPmhVjiHdsczKiwc=P-R',
+    'U2FsdGVkX1+2zyJe2E/+vxOZO56AAg2cm6gM3QVxEG8=S-U',
+    'U2FsdGVkX19fy/fCtFV175wA52899hTTnoEWocQXs90=V-X',
+    'U2FsdGVkX18zvf9T8Qa6RIVFtPDSnzHKIT6lthV/EwE=Y-AA',
+    'U2FsdGVkX1+GRRjtShIvgkZqr4x/mky/NlFq9hwaDWg=AB-AD',
+    'U2FsdGVkX1/cZH50Fj+T/cJp0jkeV1EezS5vTbLDcyw=AE-AG',
+    'U2FsdGVkX18Jaiqb9umbb79iUqBCWltYBP9vGKFY1c4=CP-CR',
+    'U2FsdGVkX19pYMsZhjjEMapfQM0wDYpUPOeHV0u7aYk=FA-FC',
+    'U2FsdGVkX1+VqmazylNo63sTKbhtSfbnYtKV30uAU3g=HL-HN',
+    'U2FsdGVkX1/6vAprC5td3+nn8fLKq23FXjsOp9jJ3BQ=AH-AJ',
+    'U2FsdGVkX1+Dha1J3iZk3ieLW2uUHQHslO7zEROBlho=BL-BN',
+    'U2FsdGVkX18mX2VyValZDIuvKBRbiLx7Jg2mE4RHFj4=DE-DG',
+    'U2FsdGVkX1883RFKRFybQjXxM5iOxiKU5peRoluttGo=AK-AM',
+    'U2FsdGVkX18piQoJ4VyljYf4pQRab8jf18/xuigK+Mc=AN-AP',
+    'U2FsdGVkX184F+D6h50SzR7HA+apV61mjSmEhkty91g=AQ-AS',
+    'U2FsdGVkX1+FUvhNcLLcBXn7TOc7PdWMaUXRi+S50+Q=AT-AV',
+    'U2FsdGVkX19DLQZI00cl02e5gveD5lAo7/RM1NSH3Ug=AW-AY',
+    'U2FsdGVkX18DmBxn0SDVqQ1+ioPpyToyIROqOlTzuDA=AZ-BB',
+    'U2FsdGVkX19KuJQzXq0uFcE4KuWhBtKz9TSu4f76nL4=BC-BE',
+    'U2FsdGVkX19l1A6qiU5yUv5fg6FUe3H339z4We/94hQ=BF-BH',
+    'U2FsdGVkX181SCTv2N1xdGPEXY7DwfXRIGyWm0qtxxU=BI-BK',
+    'U2FsdGVkX1+d79N6yd3Mafnvy+4yvdn9CQj0JmcKxck=BO-BQ',
+    'U2FsdGVkX182/b0reJjBMdFr+/aZJwpuunFAlZK9Dvs=BR-BT',
+    'U2FsdGVkX1//qjVNWqRu1gF3TJfR+Q7Fh3nbOOMNHms=BU-BW',
+    'U2FsdGVkX1+c7eqStZiU4S+AfzqZeQAW9tGp+exw4Dk=J-L',
+    'U2FsdGVkX1/QIHVTO5AJ27a4+S1FOqMGk5IGFd89q80=CA-CC',
+    'U2FsdGVkX18iFeB720CQsHEZ1QPj0RdEyL/RB6s1Mew=CG-CI',
+    'U2FsdGVkX183DzJbe4bPHAQp1YvEjQ0yyJbPj24I/I8=CJ-CL',
+    'U2FsdGVkX19BsClaphcnK6snf8cfq8+uSJ6Cu4aoDw8=GZ-HB',
+    'U2FsdGVkX18o93KupMhfhihsnTUSwG83K+fe9cwfzEQ=CS-CU',
+    'U2FsdGVkX18fKH32Xn/AFuuoZcSUVwQFu69eM9MYwp8=CV-CX',
+    'U2FsdGVkX184oUnImZ2YramHJxlCCAldF06+Ihb2Zxc=CY-DA',
+    'U2FsdGVkX195fJsDioc6ys/JVy34aOVZgGRWMUbZCho=DB-DD',
+    'U2FsdGVkX19U94ZzNtJa0Y0buO1fmAOrastNKsX6Tmw=DH-DJ',
+    'U2FsdGVkX19W9wSLQkC0enT2YSf7V7gUdEdr5QxvP2s=DK-DM',
+    'U2FsdGVkX185RJ7MZeJnBxnWjDJWgCXTwmuHg+Q5I/I=DN-DP',
+    'U2FsdGVkX199/Em8lEcTmXXoe0EwUoOlYcF9IrfVKJM=DT-DV',
+    'U2FsdGVkX1+RyAz/dbFxwNPCqJP6ndwF6RofyAb+llc=DW-DY',
+    'U2FsdGVkX18eiJnqrPz4CJNdwiNbqnha8u3Caotytao=DZ-EB',
+    'U2FsdGVkX18+rVamLAB0QssBhuDqUukW909lhhVOZCo=EC-EE',
+    'U2FsdGVkX192HFvqatyntOmFqqWPiyRGBNlM3R3C8QE=EI-EK',
+    'U2FsdGVkX19+Bf1W4kLSn2ZF2zbpppQoN57AA1b4P5w=EL-EN',
+    'U2FsdGVkX18O00LJzq/TvOlWmbbCszdd/dvg4bkzR4w=EO-EQ',
+    'U2FsdGVkX194SCt4C7lViyFeyB/C3lDPd93R1i2gAZE=ER-ET',
+    'U2FsdGVkX1+LvJ1UavhOr1Slvv5fJUQ+epcSJ6Hz9lo=EU-EW',
+    'U2FsdGVkX18A2Ect4qg5BcbvgR8WRwRx4snBeOWXQCwEX-EZ',
+    'U2FsdGVkX19voarCHwTB9YSSuhNvvvLqQhTvnAsstkI=FD-FF',
+    'U2FsdGVkX183RsZUMyNHg2gJ24FynnZjDs+SCKfWSMo=FG-FI',
+    'U2FsdGVkX1+I9FW6Sta7ehFb/TyUD8PTGmsoFttUgdM=FJ-FL',
+    'U2FsdGVkX1+8w5bIUmhAl6EwxS7M8TuDVVH0V6SwOes=FM-FO',
+    'U2FsdGVkX1830bNQBm+CvNVw0AaeYHjO6I1B26qBtBw=FP-FR',
+    'U2FsdGVkX18ngnqqHIXWwz1GpzpojkImrh13V6Oth+U=FS-FU',
+    'U2FsdGVkX1/N+pStpYDo6vuENiRCo9wREmCtG7g2Pd4=FV-FX',
+    'U2FsdGVkX18ThP9WQGfpmNcsEP0FNM0qaU59CWZqiYo=FY-GA',
+    'U2FsdGVkX19KV5XDIYAEEO55zmwc/fTI099j9thyAgI=GB-GD',
+    'U2FsdGVkX18vnw9S+HsqwzfgfM/YGV+wuNM3R1XQQDk=GE-GG',
+    'U2FsdGVkX18Ezcve6N7jtR85yxYQcKNcAKD8nH3bLQw=GH-GJ',
+    'U2FsdGVkX1/6w4okUQnB1I1dXUJewcnRAYW3/+HAbiA=GK-GM',
+    'U2FsdGVkX1+ejgFqHgJHmHXrO6XNpDQL+T2kgwimqqE=GM-GP',
+    'U2FsdGVkX19EniYf6eSYvbxD0OrzkXD9cQiQd6mYbmA=GT-GV',
+    'U2FsdGVkX1+9hGmNIFR5tsMkCrskbXazwGiIAp1U8QA=GQ-GS',
+    'U2FsdGVkX19dK2+2GXMZJkrcVYWOp5uP1Uqg3jAaNUw=GW-GY',
+    'U2FsdGVkX1+2Ds49qSycDhZE2Jcu8KeNfrlW/0Ltna4=HC-HE',
+    'U2FsdGVkX1/F1IcWWV4k6FHgLIlSeHpXmZrFCinLfck=HF-HH',
+    'U2FsdGVkX1/5DA0e+ljc2dA47t3FbwmEFq4ZIm80WQM=HI-HK',
+    'U2FsdGVkX18Fc624PSbyNQkTv9keY++Ephb+YlVNrLU=HO-HQ',
+    'U2FsdGVkX1/G6rAQD/QsFFAAWvlOZCtV+tzxg73xy3U=HR-HT',
+    'U2FsdGVkX1/Y1t3lkGPe5bpuPQXyrdZa3g3Ut0SzFYA=HU-HW',
+    'U2FsdGVkX1/ggtInv2OeyyaxMqK1rWhvfkoGoKwG5V4=HX-HZ',
+    'U2FsdGVkX1/TyioYJSetkNIgZOC0Mq09wvwqo+d1tzw=IA-IC',
+    'U2FsdGVkX1+NiOwrlraU0KBKrzLnn78f5pA1n/r0qps=ID-IF',
+    'U2FsdGVkX1/PqB0cP//eQlxnYd00Ry7L+Y6tebfohyw=IG-II',
+    'U2FsdGVkX19ONotbkh2Q+pzZCJy4EbQ3jG5c0FEUGxE=IM-IO',
+    'U2FsdGVkX18XSD8nSjsh/l1rXDx/dyHArS/ZCsdhTLM=IP-IR',
+    'U2FsdGVkX19AkZJr96pg9OEBJETqmtjPqmlgAVIvGOU=IS-IU',
+    'U2FsdGVkX1+stgpOqfL7mmQCg+vbY7ISqaDhwqdk/hQ=IJ-IL',
+
+    ]; 
+
+    $( document ).ready(function() {
+        const striing = 'AbhjyJCyu7*t'; 
+        $('#encrypt').on('click', function(e){
+            e.preventDefault(); 
+            var myString = $('#input').val(); 
+            var encrypted = CryptoJS.AES.encrypt(myString, striing);
+            $('#output').val( encrypted ); 
+        }); 
+
+        $('#decrypt').on('click', function(e){
+            e.preventDefault(); 
+            var myString = $('#input').val(); 
+            var decrypted = CryptoJS.AES.decrypt(myString, striing);
+            decrypted = decrypted.toString(CryptoJS.enc.Utf8); 
+            $('#output').val( decrypted ); 
+        }); 
+
+        const link1 = "https://onedrive.live.com/embed?resid=12BFDFD044837D49%2116130&authkey=%21AOIflsYLvqQlu-8&em=2&wdAllowInteractivity=False&Item='Final'!"; 
+        const link3 = "1%3A"; 
+        const link5 = "1000&wdHideGridlines=True&wdInConfigurator=True"; 
+        var link2 = ''; 
+        var link4 = ''; 
+        var fullLink = ''; 
+
+        $('#check').on('click', function(e){
+            e.preventDefault(); 
+            var myNum = $('#input').val(); 
+           
+            var listLen = docList.length; 
+            var i = 0; 
+            var matched = false;
+            var decrypted = ''; 
+
+            for(i = 0; i < listLen; i++ ){
+                var codac = docList[i].substring(0,docList[i].indexOf("=")+1); 
+                var axle = docList[i].substring(docList[i].indexOf("=")+1,docList[i].length); 
+                var axleParts = axle.split("-"); 
+                var link2 = axleParts[0]; 
+                var link4 = axleParts[1]; 
+
+                //alert(codac + " | " + link2 + " | " + link4);
+                decrypted = CryptoJS.AES.decrypt(codac, striing);
+                decrypted = decrypted.toString(CryptoJS.enc.Utf8); 
+                if( decrypted.indexOf(myNum) >= 0 ){
+                    matched = true;
+                    //alert(link2 + " | " + link4); 
+                    fullLink = link1 + link2 + link3 + link4 + link5; 
+                    i = listLen + 5; 
+                }
+            }
+            
+            if( matched === true ){
+                $("#balFrame").attr("src", fullLink);
+            }else{
+                alert("Not found");
+            }
+
+            //$('#output').val( decrypted ); 
+
+        }); 
+
+         
+    });
+</script>
+</body>
+</html>
