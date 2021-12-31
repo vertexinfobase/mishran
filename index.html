@@ -33,7 +33,8 @@
 <body>
 <form style='display:block; width:100%; text-align:center;' autocomplete='off'>
     <input type='text' placeholder="Enter Mobile Number" id='input'/><br>
-    <button id='check' style='display:inline-block; margin-top:5pt; width:150pt; height:25pt; background:midnightblue; color:gold; text-align:left; padding-left:2vw; '>View Bill and Order History</button><br>
+    <button id='check' style='display:inline-block; margin-top:5pt; width:150pt; height:25pt; background:midnightblue; color:gold; text-align:left; padding-left:2vw; '>View 2021 Orders</button><br>
+    <button id='check22' style='display:inline-block; margin-top:5pt; width:150pt; height:25pt; background:midnightblue; color:gold; text-align:left; padding-left:2vw; '>View 2022 Orders</button><br>
     <input type='text' disabled='true' id='output'  style='display:none;'/><br>
     <button id='encrypt' style='display:none;'>Encrypt</button><br>
     <button id='decrypt' style='display:none;'>Decrypt</button><br>
@@ -150,11 +151,14 @@
         }); 
 
         const link1 = "https://onedrive.live.com/embed?resid=12BFDFD044837D49%2116130&authkey=%21AOIflsYLvqQlu-8&em=2&wdAllowInteractivity=False&Item='Final'!"; 
+        const pink1 = "https://onedrive.live.com/embed?resid=12BFDFD044837D49%2116161&authkey=%21AJkuGEr-bIuFyzU&em=2&wdAllowInteractivity=False&Item='Final'!"; 
         const link3 = "1%3A"; 
+        const pink3 = "1%3A"; 
         const link5 = "190&wdHideGridlines=True&wdInConfigurator=True"; 
-        var link2 = ''; 
-        var link4 = ''; 
-        var fullLink = ''; 
+        const pink5 = "190&wdHideGridlines=True&wdInConfigurator=True"; 
+        var link2 = ''; var pink2 = ''; 
+        var link4 = ''; var pink4 = ''; 
+        var fullLink = ''; var fullPink = ''; 
 
         $('#check').on('click', function(e){
             e.preventDefault(); 
@@ -185,6 +189,44 @@
             
             if( matched === true ){
                 $("#balFrame").attr("src", fullLink);
+            }else{
+                alert("Not found");
+            }
+
+            //$('#output').val( decrypted ); 
+
+        }); 
+        
+        
+        $('#check22').on('click', function(e){
+            e.preventDefault(); 
+            var myNum = $('#input').val(); 
+           
+            var listLen = docList.length; 
+            var i = 0; 
+            var matched = false;
+            var decrypted = ''; 
+
+            for(i = 0; i < listLen; i++ ){
+                var codac = docList[i].substring(0,docList[i].indexOf("=")+1); 
+                var axle = docList[i].substring(docList[i].indexOf("=")+1,docList[i].length); 
+                var axleParts = axle.split("-"); 
+                var pink2 = axleParts[0]; 
+                var pink4 = axleParts[1]; 
+
+                //alert(codac + " | " + link2 + " | " + link4);
+                decrypted = CryptoJS.AES.decrypt(codac, striing);
+                decrypted = decrypted.toString(CryptoJS.enc.Utf8); 
+                if( decrypted.indexOf(myNum) >= 0 ){
+                    matched = true;
+                    //alert(link2 + " | " + link4); 
+                    fullPink = pink1 + pink2 + pink3 + pink4 + pink5; 
+                    i = listLen + 5; 
+                }
+            }
+            
+            if( matched === true ){
+                $("#balFrame").attr("src", fullPink);
             }else{
                 alert("Not found");
             }
