@@ -186,6 +186,7 @@
         $('#check').on('click', function(e){
             e.preventDefault(); 
             var myNum = $('#input').val(); 
+            if(myNum.length <= 0){myNum = '1111111111'}
            
             var listLen = docList.length; 
             var i = 0; 
@@ -224,6 +225,7 @@
         $('#check22').on('click', function(e){
             e.preventDefault(); 
             var myNum = $('#input').val(); 
+            if(myNum.length <= 0){myNum = '1111111111'}
            
             var listLen = docList.length; 
             var i = 0; 
