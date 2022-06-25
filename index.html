@@ -199,12 +199,12 @@
                 var link2 = axleParts[0]; 
                 var link4 = axleParts[1]; 
 
-                //alert(codac + " | " + link2 + " | " + link4);
+                alert(codac + " | " + link2 + " | " + link4);
                 decrypted = CryptoJS.AES.decrypt(codac, striing);
                 decrypted = decrypted.toString(CryptoJS.enc.Utf8); 
                 if( decrypted.indexOf(myNum) >= 0 ){
                     matched = true;
-                    //alert(link2 + " | " + link4); 
+                    alert(link2 + " | " + link4); 
                     fullLink = link1 + link2 + link3 + link4 + link5; 
                     i = listLen + 500; 
                 }
