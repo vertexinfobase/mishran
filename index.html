@@ -124,14 +124,6 @@
                 $("#slideshow").fadeIn(500);
             });
         }, 5000);
-        
-        setInterval(function () {
-            $("#slideshow").fadeOut(500, function(){
-                if(i<20){i++}else{i=0}
-                $("#slideshow").attr("src", "imgs/"+i+".jpg");
-                $("#slideshow").fadeIn(500);
-            });
-        }, 5000);
 
         $('a[href^="#"]').on('click', function (e) {
             //e.preventDefault();
