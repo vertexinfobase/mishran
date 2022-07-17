@@ -31,7 +31,7 @@
 <body>
     <div id="header">
         <span style="font-size:1.25em;display:inline-block; margin-left:5pt; padding:3pt; color:midnightblue;font-weight:900; font-family: Papyrus, fantasy;">Mishran&trade;</span>
-        <span style="font-size:1.25em;display:inline-block; margin-left:25pt; padding:5pt; color:black"><img style='vertical-align:bottom; height:23pt; width:40pt;font-weight:900;' src='../WhatsApp.png'/>  7355184136</span>
+        <span style="font-size:1.25em;display:inline-block; margin-left:25pt; padding:5pt; color:black"><img style='vertical-align:bottom; height:23pt; width:40pt;font-weight:900;' src='WhatsApp.png'/>  7355184136</span>
 
         <style>
             ul {display:inline-block; list-style:none outside none; margin-top:2vh; text-align:center; }
@@ -51,7 +51,7 @@
     </div>
 
     <div id="content">
-        <div style="text-align:center; background:black; position:relative;"><img id="slideshow" style="height:35vh; background:red;" src='../0.jpg'/></div>
+        <div style="text-align:center; background:black; position:relative;"><img id="slideshow" style="height:35vh; background:red;" src='0.jpg'/></div>
 
         <div id="data" style="position:relative; min-height:200vh;background:whitesmoke; padding:5pt; padding-bottom:50vh;">
             <h3 id="about">ABOUT MISHRAN</h3>
@@ -109,7 +109,7 @@
             </div>
         </div>
 
-        <a href="#about"><img style='position:fixed; z-index:10; bottom:10pt; right:10pt; height:30pt; width:30pt;' src='../up.png'/></a>
+        <a href="#about"><img style='position:fixed; z-index:10; bottom:10pt; right:10pt; height:30pt; width:30pt;' src='up.png'/></a>
         <!--<div id="footer" style="position:relative; min-height:10vh; width:100%; max-width:100%; background:black; color:gold;">Footer</div>-->
     </div>
     
@@ -120,7 +120,7 @@
         setInterval(function () {
             $("#slideshow").fadeOut(500, function(){
                 if(i<20){i++}else{i=0}
-                $("#slideshow").attr("src", "../" + i + ".jpg");
+                $("#slideshow").attr("src", i + ".jpg");
                 $("#slideshow").fadeIn(500);
             });
         }, 5000);
