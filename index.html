@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='UTF-8'>
+    <meta name='HandheldFriendly' content='true'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+    <meta name='theme-color' content='white'>
+    <meta name='author' content='Tricity_Shopping'>
+    <meta name='description' content='100% Veg Food'>
+    <meta name='keywords' content='online shopping tricity chandigarh mohali panchkula sas-nagar'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Mishran</title>
+    <style>
+        *{margin:0; padding:0; outline:none; text-decoration:none; border:0; font-family:Arial, Helvetica, sans-serif; -ms-touch-action: manipulation; touch-action: manipulation; -webkit-overflow-scrolling: touch; -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; overflow-x:hidden; 
+            /*
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            */
+        }
+        body { height:100vh; width:100vh; max-width:100vw; background: white;}
+        #header {position:fixed; z-index:5; top:0; left:0; width:100vw; height:15vh; background:lavender; }
+        #content {position:absolute; z-index:4; top:15vh; left:0; width:100vw; max-width:100vw; min-height:84vh; max-height:auto; background:gainsboro; }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <span style="font-size:1.25em;display:inline-block; margin-left:5pt; padding:3pt; color:midnightblue;font-weight:900; font-family: Papyrus, fantasy;">Mishran&trade;</span>
+        <span style="font-size:1.25em;display:inline-block; margin-left:25pt; padding:5pt; color:black"><img style='vertical-align:bottom; height:23pt; width:40pt;font-weight:900;' src='imgs/WhatsApp.png'/>  7355184136</span>
+
+        <style>
+            ul {display:inline-block; list-style:none outside none; margin-top:2vh; text-align:center; }
+            ul li {float:left; margin-left:6pt; line-height:3.5vh; }
+            ul li a{display:inline-block; text-align:center; height:100%; padding:5pt; background:midnightblue; color:gold; font-size:1.05em; border-top-left-radius:10pt; border-bottom-right-radius:10pt; }
+            p{text-align:justify; font-size:1.15em; line-height:17pt; }
+            h3 {margin-top:10pt;}
+            input {height:25pt; padding-left:2vw; width:55vw; }
+        </style>
+        <ul>
+            <li><a href="#about">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#specials">Specials</a></li>
+            <li><a href="#bill">Bill</a></li>
+            <li><a href="#info">Info</a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <div style="text-align:center; background:black; position:relative;"><img id="slideshow" style="height:35vh; background:red;" src='imgs/0.jpg'/></div>
+
+        <div id="data" style="position:relative; min-height:200vh;background:whitesmoke; padding:5pt; padding-bottom:50vh;">
+            <h3 id="about">ABOUT MISHRAN</h3>
+            <p>We at Mishran love to create perfect blend of taste, health and aroma. We provide 100% vegetarian food using A-grade ingredients. We make use of full range of grains, pulses, vegetables, salads, leafy-greens, fruits and spices. Here, you will enjoy rustic Indian recipes cooked hygienically. 
+            </p>
+
+            <h3>AREAS COVERED</h3>
+            <p>We are currently delivering in PGIMER, Sector-11 and Sector-15 of Chandigarh.</p>
+
+            <div>
+                <br>
+                <h3 id="menu">MENU & PRICING</h3><br>
+                <h4 style="background:midnightblue; color:gold; text-align:center; padding-top:10pt; padding-bottom:10pt; font-weight:300; border-top-left-radius:50pt; border-top-right-radius:20pt; border-bottom-right-radius:50pt; border-bottom-left-radius:20pt; ">BREAKFAST</h4><br>
+                <p>Two breakfast options are sent at night. You can choose the required one. Breakfast needs to be ordered at night.  We offer Multigrain Fruits Porridge, Mix-Veg Masala Oats, Power Poha, Parathas, Bread Pakoras, Puri Chhole, Allo Puri, Chhole Bhature , Sandwich, Burrito etc. in breakfast.<br>
+                <span style="font-weight:700">Price: </span>Rs.70<br>
+                <span style="font-weight:700">Timing: </span>Breakfast menu is sent at around 9pm. Needs to be ordered at night. Delivered around 7:30am. Ordered breakfast can be cancelled by 6am. Rs.30 cancellation charges apply thereafter.<br>
+                </p>
+                <br>
+                
+                <h4 style="background:midnightblue; color:gold; text-align:center; padding-top:10pt; padding-bottom:10pt; font-weight:300; border-top-left-radius:50pt; border-top-right-radius:20pt; border-bottom-right-radius:50pt; border-bottom-left-radius:20pt; ">LUNCH & DINNER</h4><br>
+                <h3 style="font-weight:700">Lunch & Dinner Pricing</h3>
+                <h4 style="color:darkviolet; font-weight:900;">LUNCH/DINNER OPTION-1 (Rs.60)</h4>
+                <p>Sabji + 4 Chapati + <br>Salad + Pickle/Chutney</p>
+                <h4 style="color:darkviolet; font-weight:900;">LUNCH/DINNER OPTION-2 (Rs.60)</h4>
+                <p>Daal + Rice + <br>Salad + Pickle/Chutney</p>
+                <h4 style="color:darkviolet; font-weight:900;">LUNCH/DINNER OPTION-3 (Rs.80)</h4>
+                <p>Sabji + 4 Chapati + <br>Daal + Rice + <br>Salad + Pickle/Chutney</p>
+                <h4 style="color:seagreen; font-weight:900;">ADD-ON: Raita (Rs.20)</h4>
+                <h4 style="color:seagreen; font-weight:900;">ADD-ON: DESSERT (Rs.20)</h4>
+                <br>
+                <h3 style="font-weight:700">Lunch Timing</h3>
+                <p>Lunch menu is sent at around 9am. Needs to be ordered by 11am. Delivered around 1:30pm. Ordered lunch can be cancelled by 11:30am. Cancellation charges of Rs. 30 apply thereafter.</p>
+                <h3 style="font-weight:700">Dinner Timing</h3>
+                <p>Dinner menu is sent at around 4pm. Needs to be ordered by 5:30pm. Delivered around 7:30pm. Ordered dinner can be cancelled by 6pm. Cancellation charges of Rs. 30 apply thereafter.</p><br>
+
+                <h4 id="specials" style="background:midnightblue; color:gold; text-align:center; padding-top:10pt; padding-bottom:10pt; font-weight:300; border-top-left-radius:50pt; border-top-right-radius:20pt; border-bottom-right-radius:50pt; border-bottom-left-radius:20pt; margin-bottom:5pt;">SPECIALS</h4>
+                <p>We take orders for the specials from Monday to Saturday and deliver on Sundays.<br><br>
+                Churi-Ladoo Rs.150/kg<br>
+                Pure Besan-Ladoo: Rs.250/kg<br>
+                Garlic+Ginger+Chilli Pickle: Rs.200/Kg<br>
+                Lemon Pickle: Rs.200/Kg</p><br>
+
+                <h4 id="bill" style="background:midnightblue; color:gold; text-align:center; padding-top:10pt; padding-bottom:10pt; font-weight:300; border-top-left-radius:50pt; border-top-right-radius:20pt; border-bottom-right-radius:50pt; border-bottom-left-radius:20pt; margin-bottom:5pt;">CHECK YOUR BILL</h4>
+                <div>
+                    <form style='display:block; width:100vw; text-align:left;' autocomplete='off'>
+                        <input type='text' placeholder="Enter Registered Mobile Number" id='input'/>
+                        <button id='check22' style='display:inline-block; margin-top:5pt; text-align:center; width:75pt; height:25pt; background:midnightblue; color:gold; '>SUBMIT</button><br><br>
+                        
+                        <iframe id='balFrame' style='background:url("monkey.gif") center center no-repeat; display:block; top:5vh; height:90vh; max-height:90vh; width:100vw; overflow-x:hidden; overflow-y:scroll; background:; padding-left:1vw;' frameborder='0' scrolling='no' id='balFrame' src=""></iframe>
+
+                    </form>
+                </div>
+
+                <h4 id="info" style="background:midnightblue; color:gold; text-align:center; padding-top:10pt; padding-bottom:10pt; font-weight:300; border-top-left-radius:50pt; border-top-right-radius:20pt; border-bottom-right-radius:50pt; border-bottom-left-radius:20pt; margin-bottom:5pt;">INFORMATION</h4>
+            </div>
+        </div>
+
+        <a href="#about"><img style='position:fixed; z-index:10; bottom:10pt; right:10pt; height:30pt; width:30pt;' src='imgs/up.png'/></a>
+        <!--<div id="footer" style="position:relative; min-height:10vh; width:100%; max-width:100%; background:black; color:gold;">Footer</div>-->
+    </div>
+    
+</body>
+<script>
+    $(document).ready(function(){
+        var i = 1; 
+        setInterval(function () {
+            $("#slideshow").fadeOut(500, function(){
+                if(i<20){i++}else{i=0}
+                $("#slideshow").attr("src", "imgs/"+i+".jpg");
+                $("#slideshow").fadeIn(500);
+            });
+        }, 5000);
+
+        $('a[href^="#"]').on('click', function (e) {
+            //e.preventDefault();
+        
+            var targetEle = this.hash;
+            var $targetEle = $(targetEle);
+            $('html, body').stop().animate({
+                'scrollTop': ($targetEle.offset().top)-120
+            }, 800, 'swing', function () {
+                window.location.hash = targetEle;
+            });
+        });
+    });
+</script>
+
+<script>
+    var docList = [
+    'U2FsdGVkX19p7gQaK/lyFK/ZVuGZc3D5Gar4Gd9zwGo=BQ-BT',
+    'U2FsdGVkX18mEQWPkfvKnhPepWscztKIdqNvHsMI+1U=CK-CN',
+    'U2FsdGVkX19Y8gUNzX0IJ0kLFEaPFAgIsT6b58OglLY=AC-AF',
+    'U2FsdGVkX1/RA7ptNq6sfCWsFlsTZa2UFqO71d9L6Lo=EG-EJ',
+    'U2FsdGVkX1+kURV4crzYcyM6aClTonZERlcM1YItjCw=BY-CB',
+    'U2FsdGVkX18WjzwYQeKoOwrMg0b6KvUoY4J6xcYnU10=AS-AV',
+    'U2FsdGVkX18APkEbif92t9GPSkOxgDkSDAg63ArA9Q0=BU-BX',
+    'U2FsdGVkX1+f16HK0h+RhlfXF9XvAttZmwuvvVzR5uw=DI-DL',
+    'U2FsdGVkX19b7HdXsLht3MuGY5G56uWdSVnxvrxrHqU=QC-QF',
+    'U2FsdGVkX1+j/NIHgve0rKEANYBpBVQXr0yKWomu+LI=BA-BD',
+    'U2FsdGVkX1+cP7Fpcy53Ugx0ytmvrmnKCOkSTqYtlnE=CG-CJ',
+    'U2FsdGVkX1/Q2OY9apbgLxLkNfif7D26gRjg9Ix6tAc=Q-T',
+    'U2FsdGVkX19vCtZZ6EolKarlpjccwka8RYiHQxau+sc=DM-DP',
+    'U2FsdGVkX1+3hoxfY2+81NT1iY55EnoBTvguI+rSE+o=DE-DH',
+    'U2FsdGVkX19eRrwlN7FFS/Or8M6g8uRc2QwgeAUbLtQ=RI-RL',
+    'U2FsdGVkX185viCuRLZDoUsZlbUzdQd7WQroxc4cfrs=DY-EB',
+    'U2FsdGVkX19taccJ3ZKveHlToYUiAGLIJ0Ed6g24pj4=HE-HH',
+    'U2FsdGVkX19EbpD/1JfWVGqyYcL5vIwnKmhs05+TmlI=AO-AR',
+    'U2FsdGVkX1+ZjIi4QaZ2L/cLPNq+V5TjFxv1MbLh5ww=CO-CR',
+    'U2FsdGVkX19fUWGFUQj87wYu8DzwnAGQ+/XP7O0Taes=NA-ND',
+    'U2FsdGVkX1+O8p+FAgxqCTgt5uD5f0ZqFPI4sEeCAhY=EK-EN',
+    'U2FsdGVkX18uvZIRypv3PhbMWJTfwIwSSrNxKV+qXQk=HU-HX',
+    'U2FsdGVkX19poooz/dc0gM3YS73tWRIYwr1FW+z+RLc=M-P',
+    'U2FsdGVkX1+PvR89Qilfr1kc6Irfn06q322w6K84Rlc=CC-CF',
+    'U2FsdGVkX18xPF32+Y1dVmiD9cMoXrT4tTFv1NsCAMM=HM-HP',
+    'U2FsdGVkX1+9TPNwqA2n5Z5r0JWxJkWLnEMKzYD5X1w=IW-IZ',
+    'U2FsdGVkX19y3rOTmEVfrLlxFgwsYEw93G0GvtWs8Q0=HA-HD',
+    'U2FsdGVkX1+pDUZquDJGpvpprZDx3lkCCcJVOyWtWQc=IC-IF',
+    'U2FsdGVkX1+Dz4tFT61ojZgIAGNQ7VPBNIGqiU4MNuA=EC-EF',
+    'U2FsdGVkX19C1yG0Hc+I8v4dWF/jXL0LeLi4l1vSFIw=NU-NX',
+    'U2FsdGVkX1/NMBjDcw5vDecMxBkCt6iFKizMYHgeSKo=E-H',
+    'U2FsdGVkX18kWETL3TMQ/66E+Vyvm4aznSLtYZObtJk=AW-AZ',
+    'U2FsdGVkX19O8CdwUxFuc020EF4tN5mAU7mpfXNUffA=FU-FX',
+    'U2FsdGVkX19eFTGaeVtseRDLJT+dHuZeJ+EPBFwB/M8=FY-GB',
+    'U2FsdGVkX1+5aA0XQjKHnYmdnll9HhTJ6AU3ejIpQZo=MK-MN',
+    'U2FsdGVkX1+GYfXM8M3HdYG3EhCdhSFkLTMFbFGwoxw=TA-TD',
+    'U2FsdGVkX19A6UHeUOWhB3x/NpvtZxn0d2PLznO8shI=JM-JP',
+    'U2FsdGVkX1+6sR2SKEPX2kCBYvG943GYUFR9jxi4KPs=CW-CZ',
+    'U2FsdGVkX19uu/rzPbYxRti6wGMmYGrEpjOFsdlIwOE=DU-DX',
+    'U2FsdGVkX19l8AE8aqdLm3GQl1q1QJfQBshJylr+FNo=RE-RH',
+    'U2FsdGVkX1+J0izMwPkyjj3XTE808GkXcYLbTeISKPA=LA-LD',
+    'U2FsdGVkX19D3zLHE+n/2CqdapVunoiCHe5HQOzcEhE=LY-MB',
+    'U2FsdGVkX1/fd73C8/6BBrDlqM0/bziIzQ1UyUESeIs=RU-RX',
+    'U2FsdGVkX1+/zWP9K0TGEET3DhZwKXhLRuh/hmt1vM4=AG-AJ',
+    'U2FsdGVkX19RBD6iWnbmyS5MdztnNJFG68pn05c+eOQ=QG-QJ',
+    'U2FsdGVkX18QWv/kUbPn42NgYpiQJ+KvV5wzsov9dik=KG-KJ',
+    'U2FsdGVkX1+75lfv8/yzJ/Dbg6xyKM9Mbz6TkF/D1J4=DQ-DT',
+    'U2FsdGVkX18HnrkiKclju90i7TXphI+XMDaZoG/QH0U=DA-DD',
+    'U2FsdGVkX1+WkuVCbds2xAVuzh4QLrvWsjDAf9oCWXg=NQ-NT',
+    'U2FsdGVkX19K7Od+0a7rlyw4rxeUGivWde/Vtarutfk=KS-KV',
+    'U2FsdGVkX1/sjoR+p9QavNEjhZoscPzMy1/aAL1V5xU=KW-KZ',
+    'U2FsdGVkX18fj9T8L4m+I67HZt5JVCwFcTkzbPBXV5o=LI-LL',
+    'U2FsdGVkX190I/sEeiMM+CJm0ij8CN6n3QjPBfgoAuU=LQ-LT',
+    'U2FsdGVkX1/nWqOAwFZwo5CTUp/bCkjcsyLBg9rAN/M=MC-MF',
+    'U2FsdGVkX1+LypdRhOjPbPsH3vCxE+JJBGG2jKMDcI0=QW-QZ',
+    'U2FsdGVkX19q4QO9CR08ThtgsDxPzUUaa2nJnnBxqGE=SG-SJ',
+    'U2FsdGVkX18sDaD29UgQ+CpsKbsrnjmZ2WSpqlR/66Y=NI-NL',
+    'U2FsdGVkX19WrizDlm717gTvarnIcXQijlaCXBvr4/Q=JQ-JT',
+    'U2FsdGVkX1+UHYiKZrOKGkAHog6t3BQUQqEtnCHuw+w=SS-SV',
+    'U2FsdGVkX194tlOLJcFTdpjdgUX7sMoT1NWB9y3IQ+U=FI-FL',
+    'U2FsdGVkX1/N66GI3iLk7yZlkuLaDp8BBIlHWpQznbE=BE-BH',
+    'U2FsdGVkX1+7nPF4ULuTIHK2TfIKQjofRXhumcgyNIc=EO-ER',
+    'U2FsdGVkX19Wp68Bokn9NSNqw/5kLvvffnl/wkJr0Go=NY-OB',
+    'U2FsdGVkX190nTnFArVOJ1d8jdz3y8khtwtTpcBivXw=OK-ON',
+    'U2FsdGVkX18IKmzA3EYHSV0yEkH+QrR53kC/80opRrE=IS-IV',
+    'U2FsdGVkX1/QW5ScnNIodakT8bhNl3hkdAtSodds0cM=TE-TH',
+    'U2FsdGVkX1+Njb9YkFpi8pYsAB+//EiYmJDHtumjjrQ=QK-QN',
+    'U2FsdGVkX1+LXB/hvdyN5aLrTtQEknF2fRtbCLXMgX8=SK-SN',
+    'U2FsdGVkX18xdB2kbE8EwN1LIqzsV+WAf3Q8DDbYry0=AK-AN',
+    'U2FsdGVkX1/cduUDfX6yqj0SomPI7Rcfv/IPmuvoyB8=JU-JX',
+    'U2FsdGVkX1/6i1VCtUxxorp0pZ9IU0fj15py9TJnnB0=Y-AB',
+    'U2FsdGVkX1//o4PUd31vGyqoP8qGwTTSP1zGrYk7A1E=RY-SB',
+    'U2FsdGVkX182JF6npdSLmp425Suk00NCXHRe+3opnrM=EW-EZ',
+    'U2FsdGVkX1+uLgFyvN/fJ2KzUdWp5QiErld0Fvke50U=BM-BP',
+    'U2FsdGVkX18a6FC4Obs39xrqjTBKzE36pCTRADFqEJ4=PU-PX',
+    'U2FsdGVkX1/nMzNRKsIih9vbH71LR5W47FnkXJLcgOI=JY-KB',
+    'U2FsdGVkX1/bCdcksZkcISNcKqrMv0d5TQyCJWOgdpM=PM-PP',
+    'U2FsdGVkX1+JXvXVFpfbrHqsMbOGWP1Z3Pm6fy+DX34=LM-LP',
+    'U2FsdGVkX18wIM4tDhsa4yKl2MwWc9uqfz0YB2yGTc8=JE-JH',
+    'U2FsdGVkX1/51fwX9d02ipuW55sPi/pKyYLmwTJV/BE=NM-NP',
+    'U2FsdGVkX18xBUF2iuOXVJT74qrMybz0Xp9RbcJO8o0=KC-KF',
+    'U2FsdGVkX1+TtMYw2o7bAi4hAjKmc7/v2jZIldRO4NU=JA-JD',
+    'U2FsdGVkX1+Fx42xnxaKN6he9tHMdo/EgAPpXiltSUw=JI-JL',
+    'U2FsdGVkX1+Pf+lhAQoVYAdcxyvwdCXgFOU57aLslzc=SO-SR',
+    'U2FsdGVkX1/M7gde8ycdukbfn8nCRwQv3gLkEgPs8hY=HY-IB',
+    'U2FsdGVkX1/ysgWVqJK/mITZlYsazL9kXmqvQTb2SMk=PQ-PT',
+    'U2FsdGVkX1/rgHerpMqEGAtP7NpGEXficN3FoleqG5s=OS-OV',
+    'U2FsdGVkX1/qPSMoi6RKUW/W6WNVK2GHD5vgQjcbjmI=MS-MV',
+    'U2FsdGVkX19O4Uo8TcXdGpuzYtL/1O2eNWpKkTK8rJ4=OW-OZ',
+    'U2FsdGVkX19vyvE56eBEgbkYimF589osHzljSkFgafk=A-D',
+    'U2FsdGVkX18yG5FArUmX0tGS1yI8yVVLBdFCU+aetAo=PI-PL',
+    'U2FsdGVkX1/Z8t4gb1BvS9JEEcAnBRohGFXN01iY8aA=ES-EV',
+    'U2FsdGVkX19Qk/9Ve8/is4l8nvSG9Idyw6yIZUyCOTk=HI-HL',
+    'U2FsdGVkX1+3DFzAd282sjWsqteKX4N9KwZSirquOKY=IG-IJ',
+    'U2FsdGVkX1/r21/mpr63HN3rRuQJGeGe9ODZHvLURhg=FM-FP',
+    'U2FsdGVkX19uNhj/HuV9/ND6kTlVI3wrQu5EIIVR/jM=MW-MZ',
+    'U2FsdGVkX18WUezVOwHUj1b8Hfa8y/Neo5PFqZxxPFM=OO-OR',
+    'U2FsdGVkX1+ZHlur/bFASGOTi6E8Uwg2IpLFM2vns5k=QO-QR',
+    'U2FsdGVkX19mSK1xXSPNW5uO5/3AAfq4+Gsc3YZcrR8=IO-IR',
+    'U2FsdGVkX1+uI2uyiYyEErIe1FYDnS0xWK57gdn7Xg0=BI-BL',
+    'U2FsdGVkX1/ZUPwr53rZ1b29pfc99HfaoJ7W4FwK6FQ=MO-MR',
+    'U2FsdGVkX19vP70XPXRIyWLZqaorHlr3iPERrxGPCMs=GS-GV',
+    'U2FsdGVkX1/9HJbqULOon+5MNCqEaJ8MrX32JmmEH8k=RQ-RT',
+    'U2FsdGVkX1+Bi6OnTY7GMTlsll+dIe7LViDKn4xEonw=PE-PH',
+    'U2FsdGVkX1+9sW6neMpcBM4Tq8o0c7UkH0vs8hPBZ8k=U-X',
+    'U2FsdGVkX1/vHL6WYKFCo2fA1NdstJObTIu3+bAZjqI=FE-FH',
+    'U2FsdGVkX1++7/hJsXuYXxUnCazo7JNP65K7qOkUpNg=NE-NH',
+    'U2FsdGVkX18ZIvBfwYYdI2tQTrjGsjwduBiXPAxlncQ=FA-FD',
+    'U2FsdGVkX18iTwBfRBdP1C202hn5vOLK79eYUCcm1c8=GO-GR',
+    'U2FsdGVkX19t3H10tHPTyo0tac/5JnLfsblSwB0eRCM=HQ-HT',
+    'U2FsdGVkX18IQjIEjVhVc0DYfqTn8IxzGVRiWOV6rQs=GG-GJ',
+    'U2FsdGVkX19mGTgGY53vpHXqHvb8tP3HA7ke0rZVsuc=GK-GN',
+    'U2FsdGVkX1+PRi5G31kBE9/lZMADXHKHwsC7DzHDihU=RA-RD',
+    'U2FsdGVkX1/0KMGHTMEYfdxROLN8xNdARzrKpIbu9Gk=MG-MJ',
+    'U2FsdGVkX1+eukT1/X5it2WhQqfxXDOJgbpV6gjh1Fg=OC-OF',
+    'U2FsdGVkX18lduAbPYfEdYuB2wau4QbKwmRRGQ20Qnc=I-L',
+    'U2FsdGVkX1+syB3tXSp6V/TAwn0QoKJlAwFAfq8MuC8=GW-GZ',
+    'U2FsdGVkX1/5yeuz3S/sBpx4thsPQJ6+4s9mdWDBjG8=FQ-FT',
+    'U2FsdGVkX1+E/1JR+M9bpgVPpbAHx1aoryDoU5nTfrw=KO-KR',
+    'U2FsdGVkX1+3W0HZgWq9HazJVMFFpZp7uXzGMwvfNU0=LU-LX',
+    'U2FsdGVkX18Fxr9e+wvOA6VVO6EB39vvI28M8HYQueg=PA-PD',
+    'U2FsdGVkX19iAX0PsOJGLnq/MbXME6hZ7A7VG+DydAY=GC-GF',
+    'U2FsdGVkX19dhfZIySw9Rgo5/3v+qtPHDPUijxDVxH8=IK-IN',
+    'U2FsdGVkX1/EjXNSFMp+j9N+E762j6B/2tTVDe2lH1g=CS-CV',
+    'U2FsdGVkX18spbXts5LOOK7AiHLr+iCrWTxsACjwJok=LE-LH',
+    'U2FsdGVkX1/BcpUxbMAWBqw+XcN5WGvKodd2JwR94UA=OG-OJ',
+    'U2FsdGVkX1+/Qpv1tedg3sbBnSPQwFmCFqrrFHNmpDs=PY-QB',
+    'U2FsdGVkX19L35i+8Ql+G6TftvHMa3PjZvEFptMQRlk=KK-KN',
+    'U2FsdGVkX1+E1Gnk9YidUxLwz53vozYP/sePJ5CiTqY=RM-RP',
+    'U2FsdGVkX1+jCnWzdyPTDpKIyqLmSeWUu5p7j46RgXg=SC-SF',
+    'U2FsdGVkX1/ICkkrvLAcWqkhMagcEU5XXI9e6+qpIgo=SW-SZ',
+    'U2FsdGVkX1+CfEr6VXZ26ZAEKL6/3PEGx6JRTCex+ak=QS-QV',
+    'U2FsdGVkX1/cOMhJDefaV1KY4Q+2e7CWFZo5lr1h0aE=TI-TL',
+    'U2FsdGVkX1/aaQZagC+G10jOn3T6xx9cX9ewPXELIgo=TM-TP',
+    'U2FsdGVkX1/I9vPd2AXuoaKCHMGD50FMX47DURumsJo=TQ-TT',
+    'U2FsdGVkX19wK6yjuEdnwGHZLoe3NkjUaGb4z1lT/vk=TU-TX',
+    'U2FsdGVkX1/gqrZF9a5ArCuXU/vDrVE/OWCoU9hUGc0=TY-UB',
+    'U2FsdGVkX18xNCJIodB73AwSLEKzCzm3jCn3cLNWYHw=UC-UF',
+    'U2FsdGVkX1/Cq+6tNKwHtUuNkUM72Yy0oP7MGxPM6Zw=UG-UJ',
+    'U2FsdGVkX18uRACat1idt3Idv0+IOsoya4zUUEtPWag=UK-UN'
+    ]; 
+
+    $( document ).ready(function() {
+        const striing = 'AbhjyJCyu7*t'; 
+        $('#encrypt').on('click', function(e){
+            e.preventDefault(); 
+            var myString = $('#input').val(); 
+            var encrypted = CryptoJS.AES.encrypt(myString, striing);
+            $('#output').val( encrypted ); 
+        }); 
+
+        $('#decrypt').on('click', function(e){
+            e.preventDefault(); 
+            var myString = $('#input').val(); 
+            var decrypted = CryptoJS.AES.decrypt(myString, striing);
+            decrypted = decrypted.toString(CryptoJS.enc.Utf8); 
+            $('#output').val( decrypted ); 
+        }); 
+        
+        const link1 = "https://onedrive.live.com/embed?resid=63F721A68BD3456A%21119&authkey=%21ACMI7X_rZt5I1Gs&em=2&wdAllowInteractivity=False&Item='bill'!"; 
+        const pink1 = "https://onedrive.live.com/embed?resid=63F721A68BD3456A%21119&authkey=%21ACMI7X_rZt5I1Gs&em=2&wdAllowInteractivity=False&Item='bill'!"; 
+        const link3 = "1%3A"; 
+        const pink3 = "1%3A"; 
+        const link5 = "400&wdInConfigurator=True&wdInConfigurator=True&edesNext=false&ejss=false"; 
+        const pink5 = "400&wdInConfigurator=True&wdInConfigurator=True&edesNext=false&ejss=false"; 
+        var link2 = ''; var pink2 = ''; 
+        var link4 = ''; var pink4 = ''; 
+        var fullLink = ''; var fullPink = ''; 
+
+        $('#check').on('click', function(e){
+            e.preventDefault(); 
+            var myNum = $('#input').val(); 
+            if(myNum.length <= 0){myNum = '1111111111'}
+           
+            var listLen = docList.length;
+            var i = 0; 
+            var matched = false;
+            var decrypted = ''; 
+
+            for(i = 0; i < listLen; i++ ){
+                var codac = docList[i].substring(0,docList[i].indexOf("=")+1); 
+                var axle = docList[i].substring(docList[i].indexOf("=")+1,docList[i].length); 
+                var axleParts = axle.split("-"); 
+                var link2 = axleParts[0]; 
+                var link4 = axleParts[1]; 
+
+                alert(codac + " | " + link2 + " | " + link4);
+                decrypted = CryptoJS.AES.decrypt(codac, striing);
+                decrypted = decrypted.toString(CryptoJS.enc.Utf8); 
+                if( decrypted.indexOf(myNum) >= 0 ){
+                    matched = true;
+                    alert(link2 + " | " + link4); 
+                    fullLink = link1 + link2 + link3 + link4 + link5; 
+                    i = listLen + 500; 
+                }
+            }
+            
+            if( matched === true ){
+                $("#balFrame").attr("src", fullLink);
+            }else{
+                alert("Not found");
+            }
+
+            //$('#output').val( decrypted ); 
+
+        }); 
+        
+        
+        $('#check22').on('click', function(e){
+            e.preventDefault(); 
+            var myNum = $('#input').val(); 
+            if(myNum.length <= 0){myNum = '1111111111'}
+           
+            var listLen = docList.length; 
+            var i = 0; 
+            var matched = false;
+            var decrypted = ''; 
+            for(i = 0; i < listLen; i++ ){
+                var codac = docList[i].substring(0,docList[i].indexOf("=")+1); 
+                var axle = docList[i].substring(docList[i].indexOf("=")+1,docList[i].length); 
+                var axleParts = axle.split("-"); 
+                var pink2 = axleParts[0]; 
+                var pink4 = axleParts[1]; 
+
+                //alert(codac + " | " + link2 + " | " + link4);
+                decrypted = CryptoJS.AES.decrypt(codac, striing);
+                decrypted = decrypted.toString(CryptoJS.enc.Utf8); 
+                if( decrypted.indexOf(myNum) >= 0 ){
+                    matched = true;
+                    //alert(link2 + " | " + link4); 
+                    fullPink = pink1 + pink2 + pink3 + pink4 + pink5; 
+                    i = listLen + 500; 
+                }
+            }
+            
+            if( matched === true ){
+                $("#balFrame").attr("src", fullPink);
+            }else{
+                alert("Not found");
+            }
+
+            //$('#output').val( decrypted ); 
+
+        }); 
+
+         
+    });
+</script>
+</html>
